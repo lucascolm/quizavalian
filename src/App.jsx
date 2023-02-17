@@ -21,7 +21,11 @@ const App = ({usuarios}) => {
 
  async function addUser() {
   console.log(user)
-  await axios.post(`https://back-cosquin-production.up.railway.app/`,user);
+  try {
+    await axios.post(`https://back-cosquin-production.up.railway.app/`,user);
+  } catch (error) {
+    console.log(error.message)
+  }
   }
 
   function handleAnswerSubmit(isCorrect, e) {
