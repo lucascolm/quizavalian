@@ -22,7 +22,8 @@ const App = ({usuarios}) => {
  async function addUser() {
   console.log(user)
   try {
-    await axios.post(`https://back-cosquin-production.up.railway.app/`,user);
+    console.log(user)
+    await axios.post(`https://back-cosquin-production.up.railway.app/avalian`,user);
   } catch (error) {
     console.log(error.message)
   }

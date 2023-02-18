@@ -24,7 +24,7 @@ const Landing = ({ usuarios }) => {
     }
   };
   const handleSave = async () => {
-    const allUsiarios = await axios.get(`https://back-cosquin-production.up.railway.app/`);
+    const allUsiarios = await axios.get(`https://back-cosquin-production.up.railway.app/avalian`);
     console.log(allUsiarios.data);
     var wb = xlsx.utils.book_new();
     var workSheet = xlsx.utils.json_to_sheet(allUsiarios.data);
@@ -117,6 +117,7 @@ const Landing = ({ usuarios }) => {
             </span>
           </span>
           <button
+          disabled={true}
             className="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
             onClick={showAlert}
           >
