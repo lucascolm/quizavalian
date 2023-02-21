@@ -5,9 +5,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const App = ({usuarios}) => {
-
-
+const App = ({ usuarios }) => {
   const navigate = useNavigate();
   const [preguntaActual, setPreguntaActual] = useState(0);
   const [puntuacion, setPuntuacion] = useState(0);
@@ -17,16 +15,17 @@ const App = ({usuarios}) => {
   // const user=JSON.parse(localStorage.getItem('user'))
   const user = { puntuacion, ...JSON.parse(localStorage.getItem("user")) };
 
-
-
- async function addUser() {
-  console.log(user)
-  try {
-    console.log(user)
-    await axios.post(`https://back-cosquin-production.up.railway.app/avalian`,user);
-  } catch (error) {
-    console.log(error.message)
-  }
+  async function addUser() {
+    console.log(user);
+    try {
+      console.log(user);
+      await axios.post(
+        `https://back-cosquin-production.up.railway.app/avalian`,
+        user
+      );
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
   function handleAnswerSubmit(isCorrect, e) {
@@ -95,6 +94,7 @@ const App = ({usuarios}) => {
         <div className="w-full flex flex-col justify-between">
           {preguntas[preguntaActual].opciones.map((opcion) => (
             <button
+              disabled={isDisabled}
               key={opcion.respuesta}
               onClick={(e) => handleAnswerSubmit(opcion.isCorrect, e)}
               className="block w-full bg-green-200 p-4 text-black font-bold rounded-lg shadow hover:shadow-lg hover:scale-105 my-7"
