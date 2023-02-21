@@ -95,7 +95,6 @@ const App = ({usuarios}) => {
         <div className="w-full flex flex-col justify-between">
           {preguntas[preguntaActual].opciones.map((opcion) => (
             <button
-              disabled={isDisabled}
               key={opcion.respuesta}
               onClick={(e) => handleAnswerSubmit(opcion.isCorrect, e)}
               className="block w-full bg-green-200 p-4 text-black font-bold rounded-lg shadow hover:shadow-lg hover:scale-105 my-7"
